@@ -8,6 +8,15 @@ async function buscaEndereco(cep){
         if(consultaCEPNew.erro) {
             throw Error('CEP não existe')
         }
+
+        let cidade = document.getElementById('cidade');
+        let endereco = document.getElementById('endereco');
+        let estado = document.getElementById('estado');
+
+        cidade.value = consultaCEPNew.localidade;
+        endereco.value = consultaCEPNew.logradouro;
+        estado.value = consultaCEPNew.uf;
+
         console.log(consultaCEPNew);
         return consultaCEPNew
     } catch (erro) {
